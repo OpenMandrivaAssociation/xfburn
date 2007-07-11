@@ -1,7 +1,7 @@
 Summary:	A simple CD burning tool for the Xfce Desktop Environment
 Name:		xfburn
 Version:	0.2.0
-Release:	%mkrel 5
+Release:	%mkrel 6
 License:	GPL
 Group:		Graphical desktop/Xfce
 URL:		http://foo-projects.org/~pollux/xfburn
@@ -50,7 +50,6 @@ convert icons/24x24/stock_xfburn-burn-cd.png -geometry 32x32 %{buildroot}%{_icon
 convert icons/24x24/stock_xfburn-burn-cd.png -geometry 16x16 %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
 
 desktop-file-install --vendor="" \
-    --add-category="X-MandrivaLinux-System-Archiving-CDBurning" \
     --add-only-show-in="XFCE" \
     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/* 
 
@@ -70,6 +69,7 @@ rm -rf %{buildroot}
 %files  -f %{name}.lang
 %defattr(-,root,root)
 %doc AUTHORS COPYING ChangeLog INSTALL TODO
+%dir %{_datadir}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/applications/*.desktop
 %{_datadir}/%{name}/*.ui
