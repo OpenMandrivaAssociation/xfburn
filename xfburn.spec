@@ -1,17 +1,18 @@
 Summary:	A simple CD burning tool for the Xfce Desktop Environment
 Name:		xfburn
 Version:	0.2.0
-Release:	%mkrel 6
+Release:	%mkrel 7
 License:	GPL
 Group:		Graphical desktop/Xfce
 URL:		http://foo-projects.org/~pollux/xfburn
-Source0:	%{name}-%{version}.tar.bz2 
+Source0:	%{name}-%{version}.tar.bz2
+Patch0:		%{name}-0.2.0-cdrkit.patch
 BuildRequires:	libxfcegui4-devel >= 4.3.90.2 
 BuildRequires:	dbus-devel
 BuildRequires:	thunar-devel
 BuildRequires:	hal-devel
 BuildRequires:	exo-devel
-BuildRequires:	ImageMagick
+BuildRequires:	imagemagick
 BuildRequires:	desktop-file-utils
 ##1 or more are needed for burning
 Requires:	cdrkit
@@ -27,7 +28,7 @@ composition of data.
 
 %prep
 %setup -q
-
+%patch0 -p1 -b .cdrkit
 %build
 # Disable check for burning software, only used at runtime
 export cdrdao_found=yes
@@ -49,8 +50,12 @@ convert icons/24x24/stock_xfburn-burn-cd.png -geometry 48x48 %{buildroot}%{_icon
 convert icons/24x24/stock_xfburn-burn-cd.png -geometry 32x32 %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
 convert icons/24x24/stock_xfburn-burn-cd.png -geometry 16x16 %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
 
-desktop-file-install --vendor="" \
+desktop-file-install \
     --add-only-show-in="XFCE" \
+    --remove-category="X-XFCE" \
+    --remove-category="Archiving" \
+    --remove-category="Utility" \
+    --add-category="AudioVideo" \
     --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/* 
 
 %find_lang %{name}
