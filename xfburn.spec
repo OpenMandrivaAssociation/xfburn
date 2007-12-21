@@ -18,6 +18,7 @@ BuildRequires:	desktop-file-utils
 Requires:	cdrkit
 Requires:	cdrkit-genisoimage
 Requires:	cdrdao
+BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Xfburn is a simple CD burning tool acting as a front-end 
