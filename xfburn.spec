@@ -1,40 +1,32 @@
+%define prel svn4612
+
 Summary:	A simple CD burning tool for the Xfce Desktop Environment
 Name:		xfburn
-Version:	0.2.0
-Release:	%mkrel 7
-License:	GPL
+Version:	0.3.0
+Release:	%mkrel -c %{prel} 1
+License:	GPLv2+
 Group:		Graphical desktop/Xfce
-URL:		http://foo-projects.org/~pollux/xfburn
-Source0:	%{name}-%{version}.tar.bz2
-Patch0:		%{name}-0.2.0-cdrkit.patch
-BuildRequires:	libxfcegui4-devel >= 4.3.90.2 
-BuildRequires:	dbus-devel
+URL:		http://www.xfce.org/projects/xfburn/
+Source0:	%{name}-%{version}-%{prel}.tar.bz2
+BuildRequires:	libxfcegui4-devel >= 4.4.2
 BuildRequires:	thunar-devel
-BuildRequires:	hal-devel
-BuildRequires:	exo-devel
 BuildRequires:	imagemagick
 BuildRequires:	desktop-file-utils
-##1 or more are needed for burning
-Requires:	cdrkit
-Requires:	cdrkit-genisoimage
-Requires:	cdrdao
+BuildRequires:	intltool
+BuildRequires:	libburn-devel
+BuildRequires:	libisofs-devel
+BuildRequires:	xfce4-dev-tools
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
-Xfburn is a simple CD burning tool acting as a front-end 
-to mkisofs, cdrdao, readcd and cdrecord. It can blank CD-RW, 
-copy CDs, burn and create iso images, and burn personal 
-composition of data.
+Xfburn is a simple CD/DVD burning tool based on libburnia 
+libraries.It can blank CD-RWs, burn and create iso images, 
+as well as burn personal compositions of data to either CD or DVD.
 
 %prep
-%setup -q
-%patch0 -p1 -b .cdrkit
-%build
-# Disable check for burning software, only used at runtime
-export cdrdao_found=yes
-export cdrecord_found=yes
-export mkisofs_found=yes
-export readcd_found=yes
+%setup -qn %{name}
+
+./autogen.sh
 
 %configure2_5x \
 	--enable-final \
@@ -73,7 +65,7 @@ rm -rf %{buildroot}
 
 %files  -f %{name}.lang
 %defattr(-,root,root)
-%doc AUTHORS COPYING ChangeLog INSTALL TODO
+%doc AUTHORS ChangeLog  TODO
 %dir %{_datadir}/%{name}
 %{_bindir}/%{name}
 %{_datadir}/applications/*.desktop
