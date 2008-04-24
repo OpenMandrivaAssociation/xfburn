@@ -1,4 +1,4 @@
-%define prel svn4646
+%define prel svn4667
 
 Summary:	A simple CD burning tool for the Xfce Desktop Environment
 Name:		xfburn
@@ -10,12 +10,13 @@ URL:		http://www.xfce.org/projects/xfburn/
 Source0:	%{name}-%{version}-%{prel}.tar.bz2
 BuildRequires:	libxfcegui4-devel >= 4.4.2
 BuildRequires:	thunar-devel
-BuildRequires:	imagemagick
+#BuildRequires:	imagemagick
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
 BuildRequires:	libburn-devel
 BuildRequires:	libisofs-devel
 BuildRequires:	xfce4-dev-tools
+BuildRequires:	dbus-glib-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
@@ -37,10 +38,12 @@ as well as burn personal compositions of data to either CD or DVD.
 rm -rf %{buildroot}
 %makeinstall_std
 
-mkdir -p %{buildroot}%{_iconsdir}/hicolor/{16x16,32x32,48x48}/apps
-convert icons/24x24/stock_xfburn-burn-cd.png -geometry 48x48 %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png
-convert icons/24x24/stock_xfburn-burn-cd.png -geometry 32x32 %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
-convert icons/24x24/stock_xfburn-burn-cd.png -geometry 16x16 %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
+#mkdir -p %{buildroot}%{_iconsdir}/hicolor/{16x16,32x32,48x48}/apps
+#convert icons/24x24/stock_xfburn-burn-cd.png -geometry 48x48 %{buildroot}%{_iconsdir}/hicolor/48x48/apps/%{name}.png
+#convert icons/24x24/stock_xfburn-burn-cd.png -geometry 32x32 %{buildroot}%{_iconsdir}/hicolor/32x32/apps/%{name}.png
+#convert icons/24x24/stock_xfburn-burn-cd.png -geometry 16x16 %{buildroot}%{_iconsdir}/hicolor/16x16/apps/%{name}.png
+mkdir -p %{buildroot}%{_iconsdir}/hicolor/scalable/apps
+cp -f icons/scalable/stock_xfburn-burn-cd.svg %{buildroot}%{_iconsdir}/hicolor/scalable/apps/%{name}.svg
 
 desktop-file-install \
     --add-only-show-in="XFCE" \
