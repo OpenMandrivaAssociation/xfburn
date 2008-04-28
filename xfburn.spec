@@ -1,4 +1,4 @@
-%define prel svn4667
+%define prel svn4681
 
 Summary:	A simple CD burning tool for the Xfce Desktop Environment
 Name:		xfburn
