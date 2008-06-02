@@ -1,13 +1,11 @@
-%define prel svn4796
-
 Summary:	A simple CD burning tool for the Xfce Desktop Environment
 Name:		xfburn
 Version:	0.3.0
-Release:	%mkrel -c %{prel} 1
+Release:	%mkrel 1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org/projects/xfburn/
-Source0:	%{name}-%{version}-%{prel}.tar.bz2
+Source0:	%{name}-%{version}.tar.bz2
 BuildRequires:	libxfcegui4-devel >= 4.4.2
 BuildRequires:	thunar-devel
 BuildRequires:	desktop-file-utils
@@ -24,10 +22,9 @@ libraries.It can blank CD-RWs, burn and create iso images,
 as well as burn personal compositions of data to either CD or DVD.
 
 %prep
-%setup -qn %{name}
+%setup -q
 
-./autogen.sh
-
+%build
 %configure2_5x \
 	--enable-final \
 	--disable-static
