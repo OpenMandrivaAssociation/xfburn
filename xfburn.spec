@@ -1,11 +1,11 @@
 Summary:	A simple CD burning tool for the Xfce Desktop Environment
 Name:		xfburn
-Version:	0.3.1
+Version:	0.3.2
 Release:	%mkrel 1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org/projects/xfburn/
-Source0:	%{name}-%{version}.tar.bz2
+Source0:	http://goodies.xfce.org/releases/xfburn/%{name}-%{version}.tar.bz2
 BuildRequires:	libxfcegui4-devel >= 4.4.2
 BuildRequires:	thunar-devel
 BuildRequires:	desktop-file-utils
