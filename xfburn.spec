@@ -14,6 +14,7 @@ BuildRequires:	libburn-devel
 BuildRequires:	libisofs-devel
 BuildRequires:	xfce4-dev-tools
 BuildRequires:	dbus-glib-devel
+BuildRequires:	gstreamer0.10-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
@@ -34,8 +35,8 @@ as well as burn personal compositions of data to either CD or DVD.
 rm -rf %{buildroot}
 %makeinstall_std
 
-mkdir -p %{buildroot}%{_iconsdir}/hicolor/scalable/apps
-cp -f icons/scalable/stock_xfburn-burn-cd.svg %{buildroot}%{_iconsdir}/hicolor/scalable/apps/%{name}.svg
+#mkdir -p %{buildroot}%{_iconsdir}/hicolor/scalable/apps
+#cp -f icons/scalable/stock_xfburn-burn-cd.svg %{buildroot}%{_iconsdir}/hicolor/scalable/apps/%{name}.svg
 
 desktop-file-install \
     --add-only-show-in="XFCE" \
