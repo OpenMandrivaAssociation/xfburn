@@ -15,6 +15,7 @@ BuildRequires:	libisofs-devel
 BuildRequires:	xfce4-dev-tools
 BuildRequires:	dbus-glib-devel
 BuildRequires:	gstreamer0.10-devel
+BuildRequires:	libgstreamer0.10-plugins-base-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
