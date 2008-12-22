@@ -71,4 +71,5 @@ rm -rf %{buildroot}
 %{_bindir}/%{name}
 %{_datadir}/applications/*.desktop
 %{_datadir}/%{name}/*.ui
+%{_datadir}/Thunar/sendto/thunar-sendto-xfburn.desktop
 %{_iconsdir}/hicolor/*
