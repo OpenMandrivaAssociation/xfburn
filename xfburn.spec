@@ -6,7 +6,6 @@ License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org/projects/xfburn/
 Source0:	http://goodies.xfce.org/releases/xfburn/%{name}-%{version}.tar.bz2
-Patch0:		%{name}-0.4.0-format_not_a_string_literal_and_no_format_arguments.patch
 BuildRequires:	libxfcegui4-devel >= 4.4.2
 BuildRequires:	thunar-devel
 BuildRequires:	desktop-file-utils
@@ -26,7 +25,6 @@ as well as burn personal compositions of data to either CD or DVD.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %configure2_5x \
