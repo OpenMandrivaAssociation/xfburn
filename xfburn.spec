@@ -9,7 +9,7 @@ Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org/projects/xfburn/
 Source0:	http://archive.xfce.org/src/apps/xfburn/%{url_ver}/%{name}-%{version}.tar.bz2
 BuildRequires:	libxfcegui4-devel >= 4.4.2
-BuildRequires:	thunar-devel
+BuildRequires:	exo-devel >= 0.5.4
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
 BuildRequires:	libburn-devel
@@ -18,6 +18,7 @@ BuildRequires:	xfce4-dev-tools
 BuildRequires:	dbus-glib-devel
 BuildRequires:	gstreamer0.10-devel
 BuildRequires:	libgstreamer0.10-plugins-base-devel
+BuildRequires:	hal-devel
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
