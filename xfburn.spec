@@ -3,7 +3,7 @@
 Summary:	A simple CD burning tool for the Xfce Desktop Environment
 Name:		xfburn
 Version:	0.4.3
-Release:	%mkrel 4
+Release:	%mkrel 5
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org/projects/xfburn/
@@ -18,7 +18,11 @@ BuildRequires:	xfce4-dev-tools
 BuildRequires:	dbus-glib-devel
 BuildRequires:	gstreamer0.10-devel
 BuildRequires:	libgstreamer0.10-plugins-base-devel
+%if %mdkver >= 201200
+BuildConflicts:	hal-devel
+%else
 BuildRequires:	hal-devel
+%endif
 BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
@@ -32,7 +36,13 @@ as well as burn personal compositions of data to either CD or DVD.
 %build
 %configure2_5x \
 	--enable-final \
-	--disable-static
+	--disable-static \
+	%if %mdkver >= 201200
+	--disable-hal \
+	%endif
+	--enable-dbus \
+	--enable-gstreamer
+
 %make
 
 %install
