@@ -9,6 +9,7 @@ Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org/projects/xfburn/
 Source0:	http://archive.xfce.org/src/apps/xfburn/%{url_ver}/%{name}-%{version}.tar.bz2
 Patch1:		xfburn-0.4.3-gobject.patch
+Patch2:         xfburn-0.4.3-desktop.patch
 BuildRequires:	libxfcegui4-devel >= 4.4.2
 BuildRequires:	exo-devel >= 0.5.4
 BuildRequires:	desktop-file-utils
@@ -34,6 +35,7 @@ as well as burn personal compositions of data to either CD or DVD.
 %prep
 %setup -q
 %patch1 -p0
+%patch2 -p0
 
 %build
 %configure2_5x \
