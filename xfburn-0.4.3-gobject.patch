@@ -1,0 +1,10 @@
+--- xfburn.orig/xfburn-settings.h	2009-10-24 22:18:10.000000000 +0100
++++ xfburn/xfburn-settings.h	2012-04-09 10:56:27.006148061 +0100
+@@ -24,6 +24,7 @@
+ #endif /* !HAVE_CONFIG_H */
+ 
+ #include <glib.h>
++#include <glib-object.h>
+ 
+ G_BEGIN_DECLS
+ 
