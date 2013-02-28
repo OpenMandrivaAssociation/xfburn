@@ -3,13 +3,13 @@
 Summary:	A simple CD burning tool for the Xfce Desktop Environment
 Name:		xfburn
 Version:	0.4.3
-Release:	%mkrel 6
+Release:	7
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org/projects/xfburn/
 Source0:	http://archive.xfce.org/src/apps/xfburn/%{url_ver}/%{name}-%{version}.tar.bz2
 Patch1:		xfburn-0.4.3-gobject.patch
-Patch2:         xfburn-0.4.3-desktop.patch
+Patch2:		xfburn-0.4.3-desktop.patch
 BuildRequires:	libxfcegui4-devel >= 4.4.2
 BuildRequires:	exo-devel >= 0.5.4
 BuildRequires:	desktop-file-utils
@@ -25,7 +25,6 @@ BuildConflicts:	hal-devel
 %else
 BuildRequires:	hal-devel
 %endif
-BuildRoot:	%{_tmppath}/%{name}-%{version}-buildroot
 
 %description
 Xfburn is a simple CD/DVD burning tool based on libburnia 
@@ -50,7 +49,6 @@ as well as burn personal compositions of data to either CD or DVD.
 %make
 
 %install
-rm -rf %{buildroot}
 %makeinstall_std
 
 #mkdir -p %{buildroot}%{_iconsdir}/hicolor/scalable/apps
@@ -66,23 +64,7 @@ desktop-file-install \
 
 %find_lang %{name}
 
-%clean
-rm -rf %{buildroot}
-
-%if %mdkversion < 200900
-%post
-%{update_menus}
-%update_icon_cache hicolor
-%endif
-
-%if %mdkversion < 200900
-%postun
-%{clean_menus}
-%clean_icon_cache hicolor 
-%endif
-
 %files  -f %{name}.lang
-%defattr(-,root,root)
 %doc AUTHORS ChangeLog  TODO
 %dir %{_datadir}/%{name}
 %{_bindir}/%{name}
