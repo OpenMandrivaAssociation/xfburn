@@ -10,12 +10,12 @@ URL:		http://www.xfce.org/projects/xfburn/
 Source0:	http://archive.xfce.org/src/apps/xfburn/%{url_ver}/%{name}-%{version}.tar.bz2
 Patch1:		xfburn-0.4.3-gobject.patch
 Patch2:		xfburn-0.4.3-desktop.patch
-BuildRequires:	libxfcegui4-devel >= 4.4.2
+BuildRequires:	pkgconfig(libxfcegui4-1.0) >= 4.4.2
 BuildRequires:	exo-devel >= 0.5.4
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
-BuildRequires:	libburn-devel
-BuildRequires:	libisofs-devel
+BuildRequires:	pkgconfig(libburn-1)
+BuildRequires:	pkgconfig(libisofs-1)
 BuildRequires:	xfce4-dev-tools
 BuildRequires:	dbus-glib-devel
 BuildRequires:	gstreamer0.10-devel
