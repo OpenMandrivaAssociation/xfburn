@@ -3,7 +3,7 @@
 Summary:	A simple CD burning tool for the Xfce Desktop Environment
 Name:		xfburn
 Version:	0.4.3
-Release:	8
+Release:	9
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org/projects/xfburn/
@@ -19,7 +19,7 @@ BuildRequires:	pkgconfig(libisofs-1)
 BuildRequires:	xfce4-dev-tools
 BuildRequires:	dbus-glib-devel
 BuildRequires:	gstreamer0.10-devel
-BuildRequires:	libgstreamer0.10-plugins-base-devel
+BuildRequires:	gstreamer0.10-plugins-base-devel
 %if %mdkver >= 201200
 BuildConflicts:	hal-devel
 %else
