@@ -3,7 +3,7 @@
 Summary:	A simple CD burning tool for the Xfce Desktop Environment
 Name:		xfburn
 Version:	0.5.2
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org/projects/xfburn/
@@ -29,7 +29,7 @@ as well as burn personal compositions of data to either CD or DVD.
 %setup -q
 
 %build
-%configure2_5x \
+%configure \
 	--disable-static \
 	--enable-gudev \
 	--enable-dbus \
