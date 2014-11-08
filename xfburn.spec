@@ -8,23 +8,17 @@ License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org/projects/xfburn/
 Source0:	http://archive.xfce.org/src/apps/xfburn/%{url_ver}/%{name}-%{version}.tar.bz2
-Patch1:		xfburn-0.4.3-gobject.patch
-Patch2:		xfburn-0.4.3-desktop.patch
-BuildRequires:	pkgconfig(libxfcegui4-1.0) >= 4.4.2
-BuildRequires:	exo-devel >= 0.5.4
+BuildRequires:	pkgconfig(libxfce4ui-1)
+BuildRequires:	pkgconfig(exo-1)
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(libburn-1)
 BuildRequires:	pkgconfig(libisofs-1)
 BuildRequires:	xfce4-dev-tools
-BuildRequires:	dbus-glib-devel
-BuildRequires:	gstreamer0.10-devel
-BuildRequires:	gstreamer0.10-plugins-base-devel
-%if %mdkver >= 201200
-BuildConflicts:	hal-devel
-%else
-BuildRequires:	hal-devel
-%endif
+BuildRequires:	pkgconfig(gudev-1.0)
+BuildRequires:	pkgconfig(gstreamer-0.10)
+BuildRequires:	pkgconfig(gstreamer-pbutils-0.10)
+BuildRequires:	pkgconfig(gio-2.0)
 
 %description
 Xfburn is a simple CD/DVD burning tool based on libburnia 
@@ -33,16 +27,11 @@ as well as burn personal compositions of data to either CD or DVD.
 
 %prep
 %setup -q
-%patch1 -p0
-%patch2 -p0
 
 %build
 %configure2_5x \
-	--enable-final \
 	--disable-static \
-	%if %mdkver >= 201200
-	--disable-hal \
-	%endif
+	--enable-gudev \
 	--enable-dbus \
 	--enable-gstreamer
 
@@ -50,9 +39,6 @@ as well as burn personal compositions of data to either CD or DVD.
 
 %install
 %makeinstall_std
-
-#mkdir -p %{buildroot}%{_iconsdir}/hicolor/scalable/apps
-#cp -f icons/scalable/stock_xfburn-burn-cd.svg %{buildroot}%{_iconsdir}/hicolor/scalable/apps/%{name}.svg
 
 desktop-file-install \
     --add-only-show-in="XFCE" \
