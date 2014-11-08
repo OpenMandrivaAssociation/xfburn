@@ -17,6 +17,7 @@ BuildRequires:	pkgconfig(libisofs-1)
 BuildRequires:	xfce4-dev-tools
 BuildRequires:	pkgconfig(gudev-1.0)
 BuildRequires:	pkgconfig(gstreamer-0.10)
+BuildRequires:	pkgconfig(gstreamer-pbutils-0.10)
 BuildRequires:	pkgconfig(gio-2.0)
 
 %description
