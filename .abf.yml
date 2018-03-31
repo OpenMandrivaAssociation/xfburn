@@ -1,5 +1,6 @@
 removed_sources:
   xfburn-0.4.3.tar.bz2: 52d33e56b7ce9774fba680f50723eaf1a7215091
   xfburn-0.5.2.tar.bz2: d0a39b331353ccbc73b027a09c87bcbc45d9a312
-sources:
   xfburn-0.5.4.tar.bz2: cf982c53ee28ef1c841f34d37bdfe7b2e857a54d
+sources:
+  xfburn-0.5.5.tar.bz2: f1162502c80818b8b1828505d6803ebf2e3522a6

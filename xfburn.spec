@@ -1,8 +1,9 @@
-%define url_ver %(echo %{version} | cut -c 1-3)
+%define url_ver %(echo %{version} | cut -d. -f 1,2)
+%define _disable_rebuild_configure 1
 
 Summary:	A simple CD burning tool for the Xfce Desktop Environment
 Name:		xfburn
-Version:	0.5.4
+Version:	0.5.5
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
@@ -54,6 +55,7 @@ desktop-file-install \
 %doc AUTHORS ChangeLog  TODO
 %dir %{_datadir}/%{name}
 %{_bindir}/%{name}
+%{_datadir}/appdata/xfburn.appdata.xml
 %{_datadir}/applications/*.desktop
 %{_datadir}/%{name}/*.ui
 %{_datadir}/Thunar/sendto/thunar-sendto-xfburn.desktop
