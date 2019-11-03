@@ -3,14 +3,14 @@
 
 Summary:	A simple CD burning tool for the Xfce Desktop Environment
 Name:		xfburn
-Version:	0.5.5
+Version:	0.6.1
 Release:	1
 License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		http://www.xfce.org/projects/xfburn/
 Source0:	http://archive.xfce.org/src/apps/xfburn/%{url_ver}/%{name}-%{version}.tar.bz2
-BuildRequires:	pkgconfig(libxfce4ui-1)
-BuildRequires:	pkgconfig(exo-1)
+BuildRequires:	pkgconfig(libxfce4ui-2)
+BuildRequires:	pkgconfig(exo-2)
 BuildRequires:	desktop-file-utils
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(libburn-1)
@@ -19,7 +19,11 @@ BuildRequires:	xfce4-dev-tools
 BuildRequires:	pkgconfig(gudev-1.0)
 BuildRequires:	pkgconfig(gstreamer-1.0)
 BuildRequires:	pkgconfig(gstreamer-pbutils-1.0)
+BuildRequires:  pkgconfig(gthread-2.0)
+BuildRequires:  pkgconfig(gtk+-3.0)
 BuildRequires:	pkgconfig(gio-2.0)
+BuildRequires:  pkgconfig(gio-unix-2.0)
+BuildRequires:  pkgconfig(glib-2.0)
 
 %description
 Xfburn is a simple CD/DVD burning tool based on libburnia 
@@ -36,10 +40,10 @@ as well as burn personal compositions of data to either CD or DVD.
 	--enable-dbus \
 	--enable-gstreamer
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 
 desktop-file-install \
     --add-only-show-in="XFCE" \
