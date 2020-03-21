@@ -59,7 +59,7 @@ desktop-file-install \
 %doc AUTHORS ChangeLog  TODO
 %dir %{_datadir}/%{name}
 %{_bindir}/%{name}
-%{_datadir}/appdata/xfburn.appdata.xml
+%{_datadir}/metainfo/org.xfce.xfburn.appdata.xml
 %{_datadir}/applications/*.desktop
 %{_datadir}/%{name}/*.ui
 %{_datadir}/Thunar/sendto/thunar-sendto-xfburn.desktop
