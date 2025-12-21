@@ -9,6 +9,11 @@ License:	GPLv2+
 Group:		Graphical desktop/Xfce
 URL:		https://www.xfce.org/projects/xfburn/
 Source0:	https://archive.xfce.org/src/apps/xfburn/%{url_ver}/%{name}-%{version}.tar.bz2
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(libxfce4ui-2)
 BuildRequires:	pkgconfig(exo-2)
 BuildRequires:	desktop-file-utils
